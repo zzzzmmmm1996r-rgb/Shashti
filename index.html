@@ -2,9 +2,8 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<title>قالب شاشتي</title>
-<meta name="claude:viewport-fit-sides" content="cover">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>شاشتي</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Playfair+Display:wght@700;900&display=swap">
 <style>
@@ -31,8 +30,6 @@ svg{display:block}
 .logo{display:flex;align-items:center;gap:6px;font-weight:800;font-size:18px}
 .logo i{width:22px;height:22px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#ffd36a,var(--gold) 45%,#e08a00);display:grid;place-items:center}
 .iconbtn{width:36px;height:36px;display:grid;place-items:center;border-radius:50%}
-
-/* hero */
 .hero{position:relative;margin:4px 0 0;}
 .slides{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:10px;padding:0 16px;scrollbar-width:none}
 .slides::-webkit-scrollbar{display:none}
@@ -43,8 +40,6 @@ svg{display:block}
 .dots{display:flex;justify-content:center;gap:5px;margin:10px 0 2px}
 .dots b{width:6px;height:6px;border-radius:3px;background:#3a4c60;transition:.25s}
 .dots b.on{width:16px;background:var(--accent)}
-
-/* rows */
 .sec{margin-top:18px}
 .sechead{display:flex;justify-content:space-between;align-items:center;padding:0 16px;margin-bottom:8px}
 .sechead h2{font-size:15px;margin:0;font-weight:800}
@@ -52,11 +47,11 @@ svg{display:block}
 .row{display:flex;gap:10px;overflow-x:auto;padding:0 16px;scrollbar-width:none}
 .row::-webkit-scrollbar{display:none}
 .card{flex:0 0 108px;text-align:right}
-.poster{position:relative;width:100%;aspect-ratio:2/3;border-radius:8px;overflow:hidden;display:flex;align-items:center;justify-content:center}
-.poster img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.poster .pt{position:relative;font-family:var(--display);font-weight:900;color:#fff;text-align:center;line-height:.95;text-shadow:0 2px 10px #0008;letter-spacing:.5px;padding:0 6px 14%;text-transform:uppercase}
+.poster{position:relative;width:100%;aspect-ratio:2/3;border-radius:8px;overflow:hidden;display:flex;align-items:flex-end;justify-content:center}
+.poster .pt,.slide .pt{position:relative;font-family:var(--display);font-weight:900;color:#fff;text-align:center;line-height:.95;text-shadow:0 2px 10px #0008;letter-spacing:.5px;padding:0 6px 14%;text-transform:uppercase}
 .poster .pt{font-size:15px}
 .slide .pt{position:absolute;top:18%;left:0;right:0;padding:0}
+.glow{position:absolute;inset:0}
 .meta{margin-top:6px}
 .badges{display:flex;gap:4px;align-items:center;font-size:10px;color:var(--muted)}
 .imdb{background:var(--gold);color:#000;font-weight:800;font-size:8.5px;padding:0 3px;border-radius:2px;line-height:13px}
@@ -66,14 +61,10 @@ svg{display:block}
 .continue .poster{aspect-ratio:16/9}
 .prog{height:3px;background:#ffffff30;border-radius:2px;margin-top:5px;overflow:hidden}
 .prog i{display:block;height:100%;background:var(--accent)}
-
-/* bottom nav */
 .nav{position:absolute;bottom:0;left:0;right:0;z-index:20;display:flex;background:var(--nav);border-top:1px solid var(--line);padding:6px max(8px,env(safe-area-inset-left,0px)) calc(6px + env(safe-area-inset-bottom,0px))}
 .nav button{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;font-size:11px;color:var(--muted);font-weight:600}
 .nav button.on{color:var(--fg)}
 .nav button.on svg{filter:drop-shadow(0 0 6px #ffffff40)}
-
-/* details */
 .dhero{position:relative;aspect-ratio:3/4;overflow:hidden}
 .dhero .poster{position:absolute;inset:0;border-radius:0;aspect-ratio:auto}
 .dhero .poster .pt{font-size:44px;padding-bottom:62%}
@@ -110,21 +101,16 @@ svg{display:block}
 .wide{display:block;margin:12px 16px 0;width:calc(100% - 32px);background:var(--surface2);border-radius:6px;padding:7px;font-size:12.5px;font-weight:700;text-align:center}
 .cast{display:grid;grid-template-columns:repeat(4,1fr);gap:14px 6px;padding:0 16px}
 .person{text-align:center;font-size:10.5px;font-weight:700;line-height:1.25}
-.av{width:54px;height:54px;border-radius:50%;margin:0 auto 4px;display:grid;place-items:center;background:var(--surface2);overflow:hidden}
+.av{width:54px;height:54px;border-radius:50%;margin:0 auto 4px;display:grid;place-items:center;background:var(--surface2);overflow:hidden;position:relative}
 .person small{display:block;color:var(--muted);font-weight:400}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px 10px;padding:0 16px}
 .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px 8px;padding:0 16px}
 .grid3 .card,.grid2 .card{flex:none}
-
-/* categories */
 .coll{display:flex;align-items:center;gap:12px;padding:6px 16px}
 .coll .poster{width:62px;aspect-ratio:1;flex:none}
 .coll .poster .pt{font-size:8px}
 .coll b{font-size:13px;flex:1}
-.coll small{color:var(--muted);font-size:11px}
 .cat{position:relative;aspect-ratio:16/10;border-radius:8px;overflow:hidden;display:flex;align-items:flex-end;padding:8px;font-weight:800;font-size:14px;color:#fff;text-shadow:0 1px 6px #000}
-
-/* search */
 .sbar{display:flex;align-items:center;gap:8px;background:var(--surface2);border-radius:999px;padding:0 12px;height:40px;flex:1}
 .sbar input{flex:1;background:none;border:0;color:var(--fg);font-size:13px;outline:none;min-width:0}
 .sbar input::placeholder{color:var(--muted)}
@@ -139,8 +125,6 @@ svg{display:block}
 .chip{background:var(--surface2);border-radius:999px;padding:3px 12px;font-size:12px}
 .empty{text-align:center;padding:60px 30px;color:var(--muted);font-size:13px}
 .empty b{display:block;color:var(--fg);font-size:15px;margin:8px 0 2px}
-
-/* sheets */
 .scrim{position:absolute;inset:0;background:#000a;z-index:40;display:flex;align-items:flex-end}
 .sheet{width:100%;background:var(--bg);border-radius:14px 14px 0 0;padding:14px 16px calc(18px + env(safe-area-inset-bottom,0px));max-height:92%;overflow:auto;animation:up .22s ease}
 @keyframes up{from{transform:translateY(40px);opacity:0}}
@@ -154,8 +138,6 @@ svg{display:block}
 input[type=range]{width:100%;accent-color:#fff}
 .gold{width:100%;background:var(--gold);color:#111;font-weight:800;border-radius:6px;padding:11px;font-size:14px}
 .outline{border:1.5px solid var(--fg);border-radius:6px;padding:3px 12px;font-size:12px;font-weight:700}
-
-/* account */
 .acc-top{text-align:center;padding:14px 16px 18px;border-bottom:1px solid var(--line)}
 .acc-top b{font-size:15px;display:block}
 .acc-top p{margin:2px 0 12px;color:var(--muted);font-size:12px}
@@ -175,8 +157,6 @@ input[type=range]{width:100%;accent-color:#fff}
 .seg button{padding:4px 14px;border-radius:5px;font-size:12px;font-weight:700;color:var(--muted)}
 .seg button.on{background:#fff;color:#111}
 .toast{position:absolute;left:50%;bottom:92px;transform:translateX(-50%);background:#000d;color:#fff;font-size:12.5px;padding:7px 16px;border-radius:999px;z-index:90;white-space:nowrap;pointer-events:none;transition:opacity .25s}
-
-/* PLAYER */
 .player{position:absolute;inset:0;z-index:60;background:#000;color:#fff;overflow:hidden;user-select:none;touch-action:none}
 .player.land .stage{position:absolute;width:var(--h);height:var(--w);top:50%;left:50%;transform:translate(-50%,-50%) rotate(90deg)}
 .stage{position:absolute;inset:0}
@@ -195,9 +175,9 @@ input[type=range]{width:100%;accent-color:#fff}
 .pbot .bar{display:flex;align-items:center;gap:10px;font-size:11.5px;font-variant-numeric:tabular-nums}
 .track{flex:1;height:22px;display:flex;align-items:center;cursor:pointer;position:relative}
 .track .rail{position:absolute;left:0;right:0;height:3px;background:#ffffff40;border-radius:2px}
-.track .buf{position:absolute;left:0;height:3px;background:#ffffff60;border-radius:2px}
-.track .fill{position:absolute;left:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--accent2));border-radius:2px}
-.track .knob{position:absolute;width:13px;height:13px;border-radius:50%;background:var(--gold);transform:translateX(-50%);box-shadow:0 0 0 4px #ffc21a33}
+.track .buf{position:absolute;left:0;height:3px;background:#ffffff60;border-radius:2px;width:0}
+.track .fill{position:absolute;left:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--accent2));border-radius:2px;width:0}
+.track .knob{position:absolute;width:13px;height:13px;border-radius:50%;background:var(--gold);transform:translateX(-50%);box-shadow:0 0 0 4px #ffc21a33;left:0}
 .prow{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;direction:rtl}
 .prow button{font-size:12px;font-weight:700;display:flex;gap:4px;align-items:center;background:#ffffff1a;border-radius:999px;padding:4px 12px}
 .wm{position:absolute;right:14px;bottom:70px;font-weight:800;font-size:12px;letter-spacing:1px;opacity:.45;display:flex;align-items:center;gap:4px;pointer-events:none}
@@ -208,7 +188,7 @@ input[type=range]{width:100%;accent-color:#fff}
 .gauge{position:absolute;top:50%;transform:translateY(-50%);width:34px;height:130px;border-radius:17px;background:#0009;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;padding:8px 0;gap:6px;opacity:0;transition:opacity .2s;pointer-events:none}
 .gauge.show{opacity:1}
 .gauge .g{width:4px;flex:1;background:#ffffff30;border-radius:2px;position:relative;overflow:hidden}
-.gauge .g i{position:absolute;bottom:0;left:0;right:0;background:#fff}
+.gauge .g i{position:absolute;bottom:0;left:0;right:0;background:#fff;height:0}
 .gauge.l{left:24px}.gauge.r{right:24px}
 .dim{position:absolute;inset:0;background:#000;pointer-events:none;opacity:0}
 .subs{position:absolute;left:10%;right:10%;bottom:22%;text-align:center;font-size:15px;font-weight:700;text-shadow:0 0 4px #000,0 0 2px #000;pointer-events:none}
@@ -217,7 +197,7 @@ input[type=range]{width:100%;accent-color:#fff}
 .strip .ep2{flex:0 0 130px;font-size:11.5px;font-weight:700;text-align:center}
 .strip .thumb{position:relative;aspect-ratio:16/9;border-radius:6px;overflow:hidden;margin-bottom:4px;border:2px solid transparent}
 .strip .ep2.on .thumb{border-color:#fff}
-.lockbtn{position:absolute;left:14px;top:calc(50% - 80px);width:38px;height:38px;border-radius:50%;background:#0007;display:grid;place-items:center}
+.lockbtn{position:absolute;left:14px;top:calc(50% - 80px);width:38px;height:38px;border-radius:50%;background:#0007;display:grid;place-items:center;z-index:5}
 .locked .ui > :not(.lockbtn){display:none}
 .menu{position:absolute;z-index:4;left:12px;top:56px;background:#1b1f25ee;border-radius:10px;min-width:220px;padding:6px 0;font-size:13px}
 .menu .mh{padding:6px 14px;color:#9aa;font-size:11.5px}
@@ -226,7 +206,6 @@ input[type=range]{width:100%;accent-color:#fff}
 .menu hr{border:0;border-top:1px solid #ffffff1a;margin:4px 0}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 .poster img,.slide img,.thumb img,.av img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.av{position:relative}
 .poster.has-img .pt,.poster.has-img .glow{display:none}
 .slide .shade{position:absolute;inset:0;background:linear-gradient(90deg,#000a,transparent 65%),linear-gradient(transparent 50%,#0009)}
 .slide .stitle{position:absolute;right:14px;bottom:52px;left:14px;font-weight:800;font-size:19px;text-shadow:0 2px 8px #000;color:#fff}
@@ -235,13 +214,13 @@ input[type=range]{width:100%;accent-color:#fff}
 .notice{margin:10px 16px;padding:10px 12px;border-radius:8px;background:var(--surface);font-size:12px;color:var(--muted);line-height:1.7}
 .notice b{color:var(--fg)}
 .yt{position:absolute;inset:0;width:100%;height:100%;border:0;background:#000}
-.pnote{position:absolute;top:calc(64px + env(safe-area-inset-top,0px));left:50%;transform:translateX(-50%);background:#000a;border-radius:999px;padding:4px 14px;font-size:11.5px;white-space:nowrap;pointer-events:none}
+.pnote{position:absolute;top:calc(64px + env(safe-area-inset-top,0px));left:50%;transform:translateX(-50%);background:#000a;border-radius:999px;padding:4px 14px;font-size:11.5px;white-space:nowrap;pointer-events:none;max-width:90%;text-align:center}
 .attr{text-align:center;color:var(--muted);font-size:10.5px;padding:6px 24px 0;line-height:1.6}
 .ep .info p{margin:2px 0 0;font-size:11px;color:var(--muted);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .seasonlist button{display:flex;justify-content:space-between;width:100%;padding:12px 4px;border-bottom:1px solid var(--line);font-weight:700;font-size:14px}
 .seasonlist button.on{color:var(--gold)}
-.dhero ~ *{position:relative;z-index:2}
 .seasonlist small{color:var(--muted);font-weight:400}
+.dhero ~ *{position:relative;z-index:2}
 </style>
 </head>
 <body>
@@ -256,6 +235,7 @@ input[type=range]{width:100%;accent-color:#fff}
 </div>
 
 <script>
+/* ====== الأيقونات ====== */
 const I={
 home:'<svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3 2.5 11h2.7v9.5h5.3v-6h3v6h5.3V11h2.7z"/></svg>',
 cats:'<svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M4 9.5 12 4l8 5.5V20H4z"/><path d="M9 12.5h6v5H9z" fill="#0004"/></svg>',
@@ -278,7 +258,7 @@ mic:'<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><rect x
 filter:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2"/><circle cx="10" cy="17" r="2"/></svg>',
 x:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>',
 box:'<svg width="44" height="44" viewBox="0 0 24 24" fill="currentColor"><path d="M3 7l2-4h14l2 4v13a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><path d="M12 9v7m-3-3 3 3 3-3" stroke="#16212c" stroke-width="2" fill="none"/></svg>',
-avatar:'<svg width="30" height="30" viewBox="0 0 24 24" fill="#c7d2de"><path d="M12 3a4 4 0 0 1 4 4v1.2l1.6 1-1 1.4A5 5 0 0 1 12 15a5 5 0 0 1-4.6-4.4l-1-1.4L8 8.2V7a4 4 0 0 1 4-4Zm-7.5 18c.6-3.4 3.8-5.2 7.5-5.2s6.9 1.8 7.5 5.2z"/><path d="M9.5 9.5h1.6M12.9 9.5h1.6" stroke="#26364a" stroke-width="1.4"/></svg>',
+avatar:'<svg width="30" height="30" viewBox="0 0 24 24" fill="#c7d2de"><path d="M12 3a4 4 0 0 1 4 4v1.2l1.6 1-1 1.4A5 5 0 0 1 12 15a5 5 0 0 1-4.6-4.4l-1-1.4L8 8.2V7a4 4 0 0 1 4-4Zm-7.5 18c.6-3.4 3.8-5.2 7.5-5.2s6.9 1.8 7.5 5.2z"/></svg>',
 pPlay:'<svg width="26" height="26" viewBox="0 0 24 24" fill="#fff"><path d="M7 4v16l13-8z"/></svg>',
 pPause:'<svg width="26" height="26" viewBox="0 0 24 24" fill="#fff"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>',
 rew:'<svg width="26" height="26" viewBox="0 0 24 24" fill="#fff"><path d="M11 6v12L3 12zM20 6v12l-8-6z"/></svg>',
@@ -294,6 +274,7 @@ list:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" 
 };
 const APP_NAME='شاشتي', APP_LATIN='SHASHTI';
 
+/* ====== الإعدادات ====== */
 const CONFIG={
   TMDB_KEY:'',
   LANG:'ar-SA',
@@ -344,10 +325,12 @@ const SAMPLE=[
 const SAMPLE_CAST=[['مراد أوزتورك','ميران'],['ديلارا شاهين','ليلى'],['أوزغي تشليك','نسرين'],['إمره أكار','كمال'],['طارق يلماز','الجد'],['ياسمين دمير','ديلان'],['إسماعيل كايا','حسن'],['بيرنا كارا','زينب']];
 const SAMPLE_GENRES=['أكشن','دراما','كوميدي','رومانسي','جريمة','مغامرات','أنمي','برامج','وثائقي'];
 
+/* ====== التخزين ====== */
 const store={get(k,d){try{const v=localStorage.getItem('sh_'+k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem('sh_'+k,JSON.stringify(v))}catch(e){}}};
 const S={key:store.get('key',''),later:store.get('later',[]),fav:store.get('fav',[]),likes:store.get('likes',{}),dls:store.get('dls',[]),recent:store.get('recent',[]),prog:store.get('prog2',{}),seen:store.get('seen',{}),light:store.get('light',false),speed:store.get('speed',1),skip:store.get('skip',10)};
 const save=k=>store.set(k==='prog'?'prog2':k,S[k]);
 
+/* ====== أدوات ====== */
 const $=s=>document.querySelector(s);
 const app=$('#app');
 const esc=t=>String(t??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -362,6 +345,7 @@ const ITEMS={};
 SAMPLE.forEach(x=>{ITEMS['local-'+x.id]=Object.assign({},x,{id:'local-'+x.id,mt:x.k==='فيلم'?'movie':'tv',local:true,runtime:x.k==='فيلم'?118:42})});
 const getKey=()=>(S.key||CONFIG.TMDB_KEY||'').trim();
 
+/* ====== TMDB API ====== */
 const cache=new Map();
 function api(path,params={},lang=CONFIG.LANG){
  const k=getKey();if(!k)return Promise.reject(new Error('nokey'));
@@ -388,8 +372,9 @@ function norm(r,mt){
 }
 const uniq=a=>a.filter((x,i)=>x&&a.findIndex(y=>y&&y.id===x.id)===i);
 
+/* ====== Internet Archive ====== */
 const jcache=new Map();
-function getJSON(url){if(jcache.has(url))return jcache.get(url);const pr=fetch(url).then(r=>{if(!r.ok)throw new Error('HTTP '+r.status);return r.json()});jcache.set(url,pr);pr.catch(()=>cache.delete(url));return pr}
+function getJSON(url){if(jcache.has(url))return jcache.get(url);const pr=fetch(url).then(r=>{if(!r.ok)throw new Error('HTTP '+r.status);return r.json()});jcache.set(url,pr);pr.catch(()=>jcache.delete(url));return pr}
 const IA_BAD=/sex|nud|naked|erotic|porn|nazi|hitler/i;
 const first=x=>Array.isArray(x)?x[0]:x;
 const clean=x=>String(first(x)||'').replace(/<[^>]*>/g,' ').replace(/&nbsp;/g,' ').replace(/&amp;/g,'&').replace(/\s+/g,' ').trim().slice(0,700);
@@ -421,6 +406,7 @@ function netFail(){if(failed||!LIVE)return;failed=true;LIVE=false;toast('تعذ�
 function getItem(id){return ITEMS[id]||(S.seen[id]?(ITEMS[id]=Object.assign({},S.seen[id])):null)}
 function remember(s){const {id,tmdb,mt,k,t,lt,y,g,o,r,pp,bp,img,bd,d,c,local,ia,iaSrc,tm}=s;S.seen[id]={id,tmdb,mt,k,t,lt,y,g,o,r,pp,bp,img,bd,d,c,local,ia,iaSrc,tm};save('seen')}
 
+/* ====== عناصر الواجهة ====== */
 function poster(s,big){const [a,b,c]=s.c||pal(1);const src=big&&s.pp?IMG(s.pp,'w780'):s.img;
  return `<div class="poster ${src?'has-img':''}" style="background:radial-gradient(120% 70% at 50% 18%,${a} 0%,${b} 48%,${c} 100%)">${src?`<img loading="lazy" src="${src}" alt="" onerror="this.parentNode.classList.remove('has-img');this.remove()">`:''}<div class="glow" style="background:radial-gradient(40% 30% at 40% 62%,#ffffff22,transparent),linear-gradient(transparent 55%,#0009)"></div><div class="pt">${esc(s.lt||s.t)}</div></div>`}
 function badges(s){return `<div class="badges"><span class="imdb">★</span><span>${(+s.r||0).toFixed(1)}</span></div>`}
@@ -428,6 +414,7 @@ function card(s){return `<button class="card" data-open="${s.id}">${poster(s)}<d
 const skel=n=>Array.from({length:n},()=>`<div class="card"><div class="poster sk"></div><div class="sk" style="height:10px;margin-top:7px;border-radius:3px"></div><div class="sk" style="height:8px;margin-top:5px;width:60%;border-radius:3px"></div></div>`).join('');
 const emptyBox=(t,sub)=>`<div class="empty">${I.box}<b>${t}</b>${sub||''}</div>`;
 
+/* ====== التنقل ====== */
 const TABS=[['home','الرئيسية',I.home],['cats','الأقسام',I.cats],['search','بحث',I.search],['account','الحساب',I.user]];
 let tab='home',stack=[];
 const topPage=()=>stack[stack.length-1];
@@ -440,12 +427,13 @@ $('#s-page').addEventListener('scroll',()=>{const f=topPage();f&&f.onscroll&&f.o
 function back(){stack.pop();if(stack.length)openPage();else showTab(tab)}
 const pageHead=t=>`<div class="topbar"><button class="iconbtn" data-back>${I.back}</button><h1>${esc(t)}</h1></div>`;
 
+/* ====== الشاشات ====== */
 const R={};
 R.home=()=>{
  const el=$('#s-home');
  el.innerHTML=`<div class="topbar"><div class="logo"><i>${I.playD}</i>${APP_NAME}</div><div style="flex:1"></div><button class="iconbtn" data-tab="search">${I.search}</button></div>
  <div class="hero" id="hero"><div class="slides"><div class="slide sk"></div></div><div class="dots"><b class="on"></b></div></div>
- <div class="notice" id="netnote" hidden><b>بيانات تجريبية.</b> هذه المعاينة لا تسمح بالاتصال بالإنترنت. ارفع الملف على موقعك وستظهر الأفلام الحقيقية تلقائياً.</div>
+ <div class="notice" id="netnote" hidden><b>بيانات تجريبية.</b> ضع مفتاح TMDB في الإعدادات لعرض الأفلام والمسلسلات الحقيقية.</div>
  ${continueHTML()}
  ${ROWS.map(r=>`<div class="sec" id="row-${r.key}"><div class="sechead"><h2>${r.t}</h2><button data-row="${r.key}">المزيد</button></div><div class="row">${skel(5)}</div></div>`).join('')}<div style="height:10px"></div>`;
  loadHomeRows();
@@ -482,17 +470,18 @@ R.cats=()=>{
  <div class="grid2">${genres.map(([id,n],i)=>`<button class="cat" data-genre="${id}" data-gname="${esc(n)}" style="background:radial-gradient(100% 80% at 30% 20%,${pal(i)[0]},#0d141b)">${esc(n)}</button>`).join('')}</div></div>`;
  ROWS.forEach(async def=>{try{const {items}=await getRow(def);const el=$('#cth-'+def.key);if(el&&items[0])el.innerHTML=poster(items[0])}catch(e){}});
 };
-function rowPage(key){const def=ROWS.find(r=>r.key===key);return gridPage(def.t,p=>getRow(def,p))}
+function rowPage(key){const def=ROWS.find(r=>r.key===key);if(!def)return null;return gridPage(def.t,p=>getRow(def,p))}
 const IA_GENRE={'أكشن':'action','دراما':'drama','كوميدي':'comedy','رومانسي':'romance','جريمة':'crime OR noir','مغامرات':'adventure','أنمي':'animation OR cartoon','وثائقي':'documentary','برامج':'television'};
 function genrePage(id,name,mt){return gridPage(name,async p=>{if(LIVE)return discover(mt,{with_genres:id,sort_by:'popularity.desc','vote_count.gte':20},p);
  try{return await iaRow('(collection:feature_films OR collection:classic_cartoons) AND subject:('+(IA_GENRE[name]||name)+')',p)}catch(e){return {items:p===1?Object.values(ITEMS).filter(s=>s.local&&s.g===name&&s.mt===mt):[],pages:1}}})}
 function gridPage(title,loader){let items=[],page=0,pages=1,busy=false;
- const fn=()=>`${pageHead(title)}<div class="grid3" style="margin-top:6px">${items.map(card).join('')}${busy||!page?skel(9):''}</div>${page&&!busy&&!items.length?emptyBox('لا توجة عناصر','لم نجد عناوين في هذا القسم'):''}<div style="height:20px"></div>`;
+ const fn=()=>`${pageHead(title)}<div class="grid3" style="margin-top:6px">${items.map(card).join('')}${busy||!page?skel(9):''}</div>${page&&!busy&&!items.length?emptyBox('لا توجد عناصر','لم نجد عناوين في هذا القسم'):''}<div style="height:20px"></div>`;
  async function more(){if(busy||page>=pages)return;busy=true;redraw(fn);try{const r=await loader(page+1);page++;pages=r.pages||1;items=uniq(items.concat(r.items))}catch(e){page++;pages=page;toast('تعذر تحميل المحتوى')}busy=false;redraw(fn)}
  fn.mount=()=>{if(!page)more()};
  fn.onscroll=()=>{const p=$('#s-page');if(p.scrollTop+p.clientHeight>p.scrollHeight-500)more()};
  return fn}
 
+/* ====== البحث ====== */
 let sq='',filt=null,sTimer,sTok=0;
 R.search=()=>{
  $('#s-search').innerHTML=`<div class="topbar"><div class="sbar">${I.search}<input id="q" placeholder="ابحث عن أفلام، مسلسلات، أنمي..." value="${esc(sq)}"><button class="iconbtn" style="width:24px" data-mic>${I.mic}</button></div></div>
@@ -518,6 +507,7 @@ async function drawRes(){const box=$('#sres');if(!box)return;const tok=++sTok;
 }
 function addRecent(id){S.recent=[id,...S.recent.filter(x=>x!==id)].slice(0,10);save('recent')}
 
+/* ====== الحساب ====== */
 R.account=()=>{
  $('#s-account').innerHTML=`<div class="topbar"><div class="logo"><i>${I.playD}</i>${APP_NAME}</div></div>
  <div class="acc-top"><b>هل لديك حساب؟</b><p>سجّل الدخول لتحفظ قائمتك وتتابع المشاهدة من أي جهاز</p><button class="whitebtn" data-login>تسجيل الدخول</button></div>
@@ -528,8 +518,10 @@ R.account=()=>{
 };
 function listPage(title,ids){return gridPage(title,async p=>({items:p===1?ids.map(getItem).filter(Boolean):[],pages:1}))}
 
+/* ====== تفاصيل ====== */
 function details(id){
- const s=getItem(id);remember(s);
+ const s=getItem(id);if(!s)return ()=>(pageHead('غير موجود')+emptyBox('العنصر غير متاح',''));
+ remember(s);
  const st={season:1,eps:null,showAll:false,expanded:false,loaded:false};
  const fn=()=>detailsHTML(s,st);fn.sid=id;fn.st=st;
  fn.toggleDesc=()=>{st.expanded=!st.expanded;redraw(fn)};fn.showAllEps=()=>{st.showAll=true;redraw(fn)};
@@ -546,7 +538,7 @@ function details(id){
     if(!j.overview){try{const en=await api(`/${s.mt}/${s.tmdb}`,{},CONFIG.FALLBACK_LANG);s.d=en.overview||''}catch(_){}}
     s.genres=(j.genres||[]).map(g=>g.name);s.runtime=j.runtime||(j.episode_run_time||[])[0]||null;
     s.cast=(j.credits&&j.credits.cast||[]).slice(0,16).map(c=>({n:c.name,r:c.character,img:IMG(c.profile_path,'w185')}));
-    const vids=(j.videos&&j.videos.results||[]).filter(v=>v.site==='YouTube');s.trailer=(vids.find(x=>x.type==='Trailer')||vids[0]||{}).key||null;
+    const vids=(j.videos&&j.videos.results||[]).filter(v=>v.site==='YouTube');s.trailer=(vids.find(v=>v.type==='Trailer')||vids.find(v=>v.type==='Teaser')||vids[0]||{}).key||null;
     s.similar=uniq([...(j.recommendations&&j.recommendations.results||[]),...(j.similar&&j.similar.results||[])].map(r=>norm(r,s.mt))).filter(x=>x.id!==s.id).slice(0,12);
     if(s.mt==='tv'){s.seasonsList=(j.seasons||[]).filter(x=>x.season_number>0&&x.episode_count>0).map(x=>({n:x.season_number,name:x.name,count:x.episode_count,y:(x.air_date||'').slice(0,4)}));if(!s.seasonsList.length&&j.seasons&&j.seasons.length)s.seasonsList=j.seasons.map(x=>({n:x.season_number,name:x.name,count:x.episode_count}));
      const cr=(j.content_ratings&&j.content_ratings.results||[]);s.pg=((cr.find(x=>x.iso_3166_1==='US')||cr[0]||{}).rating)||''}
@@ -565,10 +557,10 @@ function detailsHTML(s,st){
  const eps=st.eps,shown=eps?(st.showAll?eps:eps.slice(0,8)):null,sea=(s.seasonsList||[]).find(x=>x.n===st.season);
  return `<div class="dhero">${poster(s,true)}<div class="dtop"><button class="iconbtn" data-back>${I.back}</button><div class="ttl">${esc(s.t)}</div><button class="iconbtn" data-fav="${s.id}" style="color:${fav?'#ff3b5c':'#fff'}">${fav?I.heart:I.heartO}</button></div></div>
  <div class="dinfo"><div class="badges"><span class="imdb">★</span>${(+s.r||0).toFixed(1)} • ${esc((s.genres&&s.genres.slice(0,2).join('، '))||s.g)} • ${s.y} ${s.o?'• '+esc(s.o):''}</div>
- <div class="sub">${s.mt==='movie'?`فيلم${s.runtime?' • '+Math.floor(s.runtime/60)+' س '+(s.runtime%60)+' د':''}`:`الموسم ${se\vert{}\vert{}1} الحلقة ${ep||1}`}</div>
+ <div class="sub">${s.mt==='movie'?`فيلم${s.runtime?' • '+Math.floor(s.runtime/60)+' س '+(s.runtime%60)+' د':''}`:`الموسم ${se||1} الحلقة ${ep||1}`}</div>
  <div class="actions"><button class="act" data-later="${s.id}">${later?I.check:I.plus}<span>المشاهدة لاحقاً</span></button><button class="watch" data-play="${s.id}" data-se="${se||1}" data-ep="${ep||1}">${I.play} ${resume?'أكمل المشاهدة':'شاهد الآن'}</button><button class="act" data-dl="${s.id}|${se||0}|${ep||0}">${I.down}<span>تحميل</span></button></div></div>
  <div class="tvline"><button class="trailer" data-trailer="${s.id}">${I.tv} مشاهدة الإعلان</button>${s.pg?`<span class="tag">${esc(s.pg)}</span>`:''}</div>
- <p class="desc">${esc(short?desc.slice(0,140)+'… ':desc+' ')}${desc.length>140?`<button data-more-desc>${st.expanded?'أقل':'المزيد'}</button>`:''}</p>
+ <p class="desc">${esc(short?desc.slice(0,140)+'… ':desc+' ')}${desc.length>140?`<button data-moreDesc>${st.expanded?'أقل':'المزيد'}</button>`:''}</p>
  <div class="likes"><button data-like="1" class="${lk===1?'on':''}">${I.like} ${453+(lk===1)}</button><button data-like="-1" class="${lk===-1?'on':''}">${I.dis} ${27+(lk===-1)}</button></div>
  ${!st.loaded?`<div class="sec"><div class="row">${skel(4)}</div></div>`:''}
  ${s.mt==='tv'&&st.loaded?`<div class="sec"><div class="sechead"><h2>الحلقات</h2>${(s.seasonsList||[]).length>1?`<button class="pill" data-season style="color:var(--fg)">${esc(sea?sea.name:'الموسم '+st.season)} ${I.chev}</button>`:''}</div>
@@ -579,9 +571,10 @@ function detailsHTML(s,st){
 }
 function seasonSheet(f,s,cur){sheet(`<div class="shead"><button data-close>${I.x}</button><h3>المواسم</h3></div><div class="seasonlist">${s.seasonsList.map(x=>`<button data-pickseason="${x.n}" class="${x.n===cur?'on':''}"><span>${esc(x.name)}</span><small>${x.count} حلقة${x.y?' • '+x.y:''}</small></button>`).join('')}</div>`)}
 
+/* ====== صفحات الحساب ====== */
 function downloadsPage(){let t='all';const fn=()=>{const items=S.dls.map(k=>{const [id,se,ep]=k.split('|');return {k,s:getItem(id),se:+se,ep:+ep}}).filter(x=>x.s&&(t==='all'||(t==='m'?x.s.mt==='movie':x.s.mt==='tv')));
  return `${pageHead('التحميلات')}<div class="tabs">${[['all','الكل'],['s','مسلسلات'],['m','أفلام']].map(([k,l])=>`<button data-dtab="${k}" class="${t===k?'on':''}">${l}</button>`).join('')}</div>
- ${items.length?items.map(x=>`<div class="result"><button data-play="${x.s.id}" data-se="${x.se||1}" data-ep="${x.ep\vert{}\vert{}1}" style="width:56px">${poster(x.s)}</button><div class="ri"><b>${esc(x.s.t)}</b><small>${x.s.mt==='movie'?'فيلم':`الموسم ${x.se} • الحلقة ${x.ep}`}</small></div><button class="dl" data-undl="${x.k}">${I.x}</button></div>`).join(''):`<div class="empty" style="color:var(--fg)">${I.box}<b>لا توجد عناصر</b><span style="color:var(--muted)">اضغط علامة التحميل بجانب أي حلقة أو فيلم لإضافته هنا</span></div>`}`};fn.tab=k=>{t=k;redraw(fn)};return fn}
+ ${items.length?items.map(x=>`<div class="result"><button data-play="${x.s.id}" data-se="${x.se||1}" data-ep="${x.ep||1}" style="width:56px">${poster(x.s)}</button><div class="ri"><b>${esc(x.s.t)}</b><small>${x.s.mt==='movie'?'فيلم':`الموسم ${x.se} • الحلقة ${x.ep}`}</small></div><button class="dl" data-undl="${x.k}">${I.x}</button></div>`).join(''):`<div class="empty" style="color:var(--fg)">${I.box}<b>لا توجد عناصر</b><span style="color:var(--muted)">اضغط علامة التحميل بجانب أي حلقة أو فيلم لإضافته هنا</span></div>`}`};fn.tab=k=>{t=k;redraw(fn)};return fn}
 function settingsPage(){const fn=()=>`${pageHead('عام')}
  <div class="setlbl">مصدر البيانات (TMDB)</div>
  <div style="padding:4px 16px 8px"><input class="inp" id="s-key" placeholder="ألصق مفتاح API أو Read Access Token" value="${esc(S.key)}" autocomplete="off"><div style="display:flex;gap:10px;margin-top:8px;align-items:center"><button class="outline" data-savekey>حفظ واتصال</button><span id="s-stat" style="font-size:12px;color:var(--muted)">${LIVE?'متصل بـ TMDB':'بيانات تجريبية'}</span></div></div>
@@ -592,10 +585,12 @@ function settingsPage(){const fn=()=>`${pageHead('عام')}
  <div class="setrow"><span style="font-weight:400">سرعة التشغيل الافتراضية</span><div class="seg">${[1,1.25,1.5].map(v=>`<button data-defspeed="${v}" class="${S.speed===v?'on':''}">${v}x</button>`).join('')}</div></div>`;return fn}
 function helpPage(){return ()=>`${pageHead('المساعدة والدعم')}<div class="list">${['كيف أحمّل حلقة للمشاهدة بدون إنترنت؟','لماذا يتوقف الفيديو أثناء التشغيل؟','كيف أغيّر جودة الفيديو؟','كيف أفعّل الترجمة؟','تواصل معنا'].map(q=>`<button data-soon><span>${q}</span>${I.left}</button>`).join('')}</div>`}
 
+/* ====== النوافذ ====== */
 function sheet(html){$('#layer').innerHTML=`<div class="scrim" data-scrim><div class="sheet">${html}</div></div>`}
 function closeSheet(){$('#layer').innerHTML=''}
 function genreOpts(mt,sel){const list=LIVE?GLIST[mt].map(g=>[g.id,g.name]):SAMPLE_GENRES.map(g=>[g,g]);return `<option value="">الكل</option>`+list.map(([id,n])=>`<option value="${id}" ${String(sel)===String(id)?'selected':''}>${esc(n)}</option>`).join('')}
 function filterSheet(){const f=filt||{mt:'movie',from:1990,to:new Date().getFullYear(),genre:'',rate:0,cast:''};
+ filterSheet.mt=f.mt;
  sheet(`<div class="shead"><button data-close>${I.x}</button><h3>تصفية النتائج</h3><button class="outline" data-freset>مسح الكل</button></div>
  <div class="field"><label>النوع</label><div class="seg" style="display:inline-flex"><button data-fmt="movie" class="${f.mt==='movie'?'on':''}">أفلام</button><button data-fmt="tv" class="${f.mt==='tv'?'on':''}">مسلسلات</button></div></div>
  <div class="field"><label>السنة</label><div class="two"><input class="inp" id="f-from" type="number" value="${f.from}"><span>إلى</span><input class="inp" id="f-to" type="number" value="${f.to}"></div></div>
@@ -603,10 +598,12 @@ function filterSheet(){const f=filt||{mt:'movie',from:1990,to:new Date().getFull
  <div class="field"><label>التقييم: <span id="f-rv">${f.rate}</span>+</label><input type="range" id="f-rate" min="0" max="10" step="0.5" value="${f.rate}"></div>
  <div class="field"><label for="f-cast">الكادر (للأفلام)</label><input class="inp" id="f-cast" placeholder="اسم ممثل" value="${esc(f.cast)}"></div>
  <button class="gold" data-fapply>إظهار النتائج</button>`);
- $('#f-rate').oninput=e=>$('#f-rv').textContent=e.target.value;filterSheet.mt=f.mt}
+ $('#f-rate').oninput=e=>$('#f-rv').textContent=e.target.value;
+}
 function loginSheet(){sheet(`<div class="shead"><button data-close>${I.x}</button><h3>تسجيل الدخول</h3></div><form id="lf"><div class="field"><label for="l-u">البريد الإلكتروني أو رقم الهاتف</label><input class="inp" id="l-u" required></div><div class="field"><label for="l-p">كلمة المرور</label><input class="inp" id="l-p" type="password" required></div><button class="gold">دخول</button></form>`);
  $('#lf').onsubmit=e=>{e.preventDefault();closeSheet();toast('اربط هذا النموذج بخادم التسجيل الخاص بك')}}
 
+/* ====== المشغل ====== */
 let P={};
 function streamFor(s,se,ep){if(s.ia)return s.iaSrc?{src:s.iaSrc}:null;const all=Object.assign({},FILE_STREAMS,STREAMS);let v=all[`${s.id}-${se}-${ep}`]||all[s.id];if(!v)return null;if(typeof v==='string')v={src:v};
  const r=x=>x&&x.replace(/\{s\}/g,se).replace(/\{e\}/g,ep).replace(/\{ss\}/g,String(se).padStart(2,'0')).replace(/\{ee\}/g,String(ep).padStart(2,'0'));return {src:r(v.src),sub:r(v.sub)}}
@@ -629,7 +626,7 @@ function openPlayerNow(id,se=1,ep=1){
  <button class="lockbtn" data-plock aria-label="قفل">${I.unlock}</button>
  <div class="mid"><button data-pprev aria-label="السابق">${I.prev}</button><button data-prew aria-label="ترجيع">${I.rew}</button><button class="pp" data-ptoggle id="ppb">${I.pPause}</button><button data-pff aria-label="تقديم">${I.ff}</button><button data-pnext aria-label="التالي">${I.next}</button></div>
  <div class="wm"><i style="display:inline-grid;place-items:center;width:16px;height:16px;border-radius:50%;background:var(--gold)">${I.playD}</i>${APP_LATIN}</div>
- <div class="pbot"><div class="prow">${s.mt==='tv'&&list?`<button data-pstrip>${I.list} الحلقات</button>`:'<span></span>'}<span></span></div><div class="bar"><span id="tc">00:00</span><div class="track" id="track"><div class="rail"></div><div class="buf"></div><div class="buf"></div><div class="fill" id="fill"></div><div class="knob" id="knob"></div></div><span id="td">${fmt(P.dur)}</span><button data-pfull aria-label="ملء الشاشة">${I.full}</button></div></div></div>
+ <div class="pbot"><div class="prow">${s.mt==='tv'&&list?`<button data-pstrip>${I.list} الحلقات</button>`:'<span></span>'}<span></span></div><div class="bar"><span id="tc">00:00</span><div class="track" id="track"><div class="rail"></div><div class="buf" id="buf"></div><div class="fill" id="fill"></div><div class="knob" id="knob"></div></div><span id="td">${fmt(P.dur)}</span><button data-pfull aria-label="ملء الشاشة">${I.full}</button></div></div></div>
  <div id="pextra"></div></div></div>`;
  const pl=$('#pl');pl.style.setProperty('--w',pl.clientWidth+'px');pl.style.setProperty('--h',pl.clientHeight+'px');
  bindGestures();showUI();
@@ -645,15 +642,15 @@ function loop(){cancelAnimationFrame(P.raf);const cv=$('#cv');const ctx=cv&&cv.g
  const step=ts=>{if(!$('#pl'))return;const dt=P.last?(ts-P.last)/1000:0;P.last=ts;
   if(P.video){P.t=P.video.currentTime||0;if(isFinite(P.video.duration))P.dur=P.video.duration}else if(ctx){if(P.playing)P.t=Math.min(P.dur,P.t+dt*P.speed);scene(ctx,P.t)}
   if(!P.video&&P.t>=P.dur-0.05&&P.playing){P.playing=false;syncPP();showUI(true)}
-  const pct=P.dur?P.t/P.dur*100:0;$('#fill').style.width=pct+'%';$('#knob').style.left=pct+'%';
-  let bufP=pct+8;if(P.video&&P.video.buffered.length)bufP=P.video.buffered.end(P.video.buffered.length-1)/P.dur*100;$('#buf').style.width=Math.min(100,bufP)+'%';
-  $('#tc').textContent=fmt(P.t);$('#td').textContent=fmt(P.dur);
-  $('#subs').textContent='';
-  if(Math.floor(ts/1000)!==P._sv&&P.t>1){P._sv=Math.floor(ts/1000);S.prog[P.key]={v:P.t/P.dur,ts:Date.now()};save('prog')}
+  const pct=P.dur?P.t/P.dur*100:0;const fill=$('#fill'),knob=$('#knob'),buf=$('#buf'),tc=$('#tc'),td=$('#td');
+  if(fill)fill.style.width=pct+'%';if(knob)knob.style.left=pct+'%';
+  let bufP=pct+8;if(P.video&&P.video.buffered.length)bufP=P.video.buffered.end(P.video.buffered.length-1)/P.dur*100;if(buf)buf.style.width=Math.min(100,bufP)+'%';
+  if(tc)tc.textContent=fmt(P.t);if(td)td.textContent=fmt(P.dur);
+  if(Math.floor(ts/1000)!==P._sv&&P.t>1&&P.dur>0){P._sv=Math.floor(ts/1000);S.prog[P.key]={v:P.t/P.dur,ts:Date.now()};save('prog')}
   P.raf=requestAnimationFrame(step)};P.raf=requestAnimationFrame(step)}
-function syncPP(){const b=$('#ppb');if(b)b.innerHTML=P.playing?I.pPause:I.pPlay;if(P.video){P.playing?P.video.play().catch(()=>{P.playing=false;const b2=$('#ppb');if(b2)b2.innerHTML=I.pPlay}):P.video.pause()}}
+function syncPP(){const b=$('#ppb');if(b)b.innerHTML=P.playing?I.pPause:I.pPlay;if(P.video){if(P.playing)P.video.play().catch(()=>{P.playing=false;const b2=$('#ppb');if(b2)b2.innerHTML=I.pPlay});else P.video.pause()}}
 function seek(t){P.t=Math.max(0,Math.min(P.dur,t));if(P.video)P.video.currentTime=P.t}
-let uiT;function showUI(stay){const u=$('#ui');if(!u)return;u.classList.remove('off');clearTimeout(uiT);if(!stay&&P.playing)uiT=setTimeout(()=>{if(!($('#pextra')||{}).innerHTML)u.classList.add('off')},3200)}
+let uiT;function showUI(stay){const u=$('#ui');if(!u)return;u.classList.remove('off');clearTimeout(uiT);if(!stay&&P.playing)uiT=setTimeout(()=>{const ex=$('#pextra');if(!ex||!ex.innerHTML)u.classList.add('off')},3200)}
 function flash(side,txt){const el=$(side==='l'?'#fxl':'#fxr');if(!el)return;el.textContent=txt;el.classList.add('show');clearTimeout(el._t);el._t=setTimeout(()=>el.classList.remove('show'),500)}
 function loadScript(src){return new Promise((res,rej)=>{const sc=document.createElement('script');sc.src=src;sc.onload=res;sc.onerror=rej;document.head.appendChild(sc)})}
 async function loadVideo(o){
@@ -666,28 +663,29 @@ async function loadVideo(o){
  P.playing=true;syncPP();loop();
 }
 function closePlayer(){cancelAnimationFrame(P.raf);if(P.hls)P.hls.destroy();if(P.video){P.video.pause();if(P.video.src.startsWith('blob:'))URL.revokeObjectURL(P.video.src)}if(document.fullscreenElement)document.exitFullscreen().catch(()=>{});if(P.key&&P.t>1&&P.dur){S.prog[P.key]={v:P.t/P.dur,ts:Date.now()};save('prog')}const was=P;P={};$('#layer').innerHTML='';const f=topPage();if(f&&!was.yt)redraw(f);else if(!stack.length&&tab==='home'&&!was.yt)R.home()}
-function bindGestures(){const st=$('#stage');let lastTap=0,drag=null;
+function bindGestures(){const st=$('#stage');if(!st)return;let lastTap=0,drag=null;
  st.addEventListener('pointerdown',e=>{if(e.target.closest('button,.track,.menu,.strip'))return;drag={x:e.clientX,y:e.clientY,moved:false,side:null}});
  st.addEventListener('pointermove',e=>{if(!drag||P.locked)return;const dy=drag.y-e.clientY;if(Math.abs(dy)>12&&Math.abs(e.clientX-drag.x)<40){drag.moved=true;const r=st.getBoundingClientRect();const pos=P.land?(e.clientY-r.top)/r.height:(e.clientX-r.left)/r.width;const side=drag.side||(pos<.5?'l':'r');drag.side=side;
-   if(side==='l'){P.bright=Math.max(.2,Math.min(1,(P.bright??1)+dy/600));$('#dim').style.opacity=1-P.bright;gauge('gl',P.bright)}else{P.vol=Math.max(0,Math.min(1,(P.vol??1)+dy/600));if(P.video)P.video.volume=P.vol;gauge('gr',P.vol)}drag.y=e.clientY}});
+   if(side==='l'){P.bright=Math.max(.2,Math.min(1,(P.bright??1)+dy/600));const dim=$('#dim');if(dim)dim.style.opacity=1-P.bright;gauge('gl',P.bright)}else{P.vol=Math.max(0,Math.min(1,(P.vol??1)+dy/600));if(P.video)P.video.volume=P.vol;gauge('gr',P.vol)}drag.y=e.clientY}});
  st.addEventListener('pointerup',e=>{if(!drag)return;const d=drag;drag=null;if(d.moved)return;if(e.target.closest('button,.track,.menu,.strip'))return;
   if(P.locked){showUI();return}
   const now=Date.now(),r=st.getBoundingClientRect(),pos=P.land?(e.clientY-r.top)/r.height:(e.clientX-r.left)/r.width;
   if(now-lastTap<300){const fwd=pos>.5;seek(P.t+(fwd?S.skip:-S.skip));flash(fwd?'r':'l',(fwd?'+':'-')+S.skip+' ث');lastTap=0;clearTimeout(st._s);return}
-  lastTap=now;clearTimeout(st._s);st._s=setTimeout(()=>{const u=$('#ui');if($('#pextra').innerHTML){$('#pextra').innerHTML='';showUI();return}u.classList.contains('off')?showUI():u.classList.add('off')},280)});
- const tr=$('#track');const sk=e=>{const r=tr.getBoundingClientRect();const p=P.land?(e.clientY-r.top)/r.height:(e.clientX-r.left)/r.width;seek(Math.max(0,Math.min(1,p))*P.dur);showUI()};
+  lastTap=now;clearTimeout(st._s);st._s=setTimeout(()=>{const u=$('#ui'),ex=$('#pextra');if(ex&&ex.innerHTML){ex.innerHTML='';showUI();return}if(u)u.classList.contains('off')?showUI():u.classList.add('off')},280)});
+ const tr=$('#track');if(!tr)return;const sk=e=>{const r=tr.getBoundingClientRect();const p=P.land?(e.clientY-r.top)/r.height:(e.clientX-r.left)/r.width;seek(Math.max(0,Math.min(1,p))*P.dur);showUI()};
  tr.addEventListener('pointerdown',e=>{tr.setPointerCapture(e.pointerId);sk(e);tr.onpointermove=sk});tr.addEventListener('pointerup',()=>tr.onpointermove=null);
 }
-function gauge(id,v){const g=$('#'+id);g.querySelector('i').style.height=v*100+'%';g.classList.add('show');clearTimeout(g._t);g._t=setTimeout(()=>g.classList.remove('show'),700)}
-function playerMenu(){const x=$('#pextra');if(x.innerHTML){x.innerHTML='';return}
- const qs=P.hls&&P.hls.levels&&P.hls.levels.length?[['-1','تلقائي'],...P.hmtls.levels.map((l,i)=>[String(i),(l.height||'?')+'p'])]:[['-1','تلقائي']];
+function gauge(id,v){const g=$('#'+id);if(!g)return;const i=g.querySelector('i');if(i)i.style.height=v*100+'%';g.classList.add('show');clearTimeout(g._t);g._t=setTimeout(()=>g.classList.remove('show'),700)}
+function playerMenu(){const x=$('#pextra');if(!x)return;if(x.innerHTML){x.innerHTML='';return}
+ const qs=P.hls&&P.hls.levels&&P.hls.levels.length?[['-1','تلقائي'],...P.hls.levels.map((l,i)=>[String(i),(l.height||'?')+'p'])]:[['-1','تلقائي']];
  const curQ=P.hls?String(P.hls.currentLevel):'-1';
  x.innerHTML=`<div class="menu"><div class="mh">سرعة التشغيل</div>${[.5,.75,1,1.25,1.5,2].map(v=>`<button data-pspeed="${v}" class="${P.speed===v?'on':''}"><span>${v===1?'عادي':v+'x'}</span>${P.speed===v?'✓':''}</button>`).join('')}<hr><div class="mh">الجودة</div>${qs.map(([i,l])=>`<button data-pq="${i}" class="${curQ===i?'on':''}"><span>${l}</span>${curQ===i?'✓':''}</button>`).join('')}<hr><button data-pfile><span>تشغيل فيديو من جهازك</span>📁</button><input type="file" id="pfile" accept="video/*" hidden></div>`;
- $('#pfile').onchange=e=>{const f=e.target.files[0];if(!f)return;const n=$('.pnote');if(n)n.remove();P.t=0;loadVideo({src:URL.createObjectURL(f)});x.innerHTML=''};showUI(true)}
-function strip(){const x=$('#pextra');if(x.innerHTML){x.innerHTML='';showUI();return}const s=P.s;
+ const pf=$('#pfile');if(pf)pf.onchange=e=>{const f=e.target.files[0];if(!f)return;const n=$('.pnote');if(n)n.remove();P.t=0;loadVideo({src:URL.createObjectURL(f)});x.innerHTML=''};showUI(true)}
+function strip(){const x=$('#pextra');if(!x||!P.list)return;if(x.innerHTML){x.innerHTML='';showUI();return}const s=P.s;
  x.innerHTML=`<div class="strip"><div class="row" style="direction:rtl">${P.list.map(e=>`<button class="ep2 ${e.n===P.ep?'on':''}" data-pep="${e.n}"><div class="thumb" style="background:radial-gradient(100% 100% at ${20+e.n*13%70}% 30%,${s.c[0]},${s.c[1]} 60%,${s.c[2]})">${e.still?`<img src="${e.still}" alt="" onerror="this.remove()">`:''}${e.n===P.ep?'<span class="playc" style="width:26px;height:26px">'+I.playD+'</span>':''}</div>الحلقة ${e.n}</button>`).join('')}</div></div>`;
- $('#ui').classList.add('off');const on=x.querySelector('.ep2.on');on&&on.scrollIntoView({inline:'center',block:'nearest'})}
+ const ui=$('#ui');if(ui)ui.classList.add('off');const on=x.querySelector('.ep2.on');if(on)on.scrollIntoView({inline:'center',block:'nearest'})}
 
+/* ====== معالج النقرات ====== */
 app.addEventListener('click',e=>{const b=e.target.closest('button,[data-open],[data-scrim]');if(!b)return;const d=b.dataset;const f=topPage();
  if('scrim' in d){if(e.target===b)closeSheet();return}
  if(d.tab){showTab(d.tab);return}
@@ -695,74 +693,66 @@ app.addEventListener('click',e=>{const b=e.target.closest('button,[data-open],[d
  if(d.trailer){showTrailer(getItem(d.trailer));return}
  if(d.play){e.stopPropagation();openPlayer(d.play,+(d.se||1),+(d.ep||1));return}
  if(d.open){if(d.rec)addRecent(d.open);push(details(d.open));return}
- if(d.row){push(rowPage(d.row));return}
+ if(d.row){const p=rowPage(d.row);if(p)push(p);return}
  if(d.gtype){gtype=d.gtype;R.cats();return}
  if(d.genre){push(genrePage(d.genre,d.gname,gtype));return}
  if(d.go){({downloads:()=>push(downloadsPage()),later:()=>push(listPage('المشاهدة لاحقاً',S.later)),fav:()=>push(listPage('المفضلة',S.fav)),settings:()=>push(settingsPage()),help:()=>push(helpPage())})[d.go]();return}
- if(d.fav){const id=d.fav;S.fav=S.fav.includes(id)?S.fav.filter(x=>x!==id):[...S.fav,id];save('fav');toast(S.fav.includes(id)?'أضيف إلى المفضلة':'أزيل من المفضلة');redraw(f);return}
- if(d.later){const id=d.later;S.later=S.later.includes(id)?S.later.filter(x=>x!==id):[...S.later,id];save('later');toast(S.later.includes(id)?'أضيف إلى المشاهدة لاحقاً':'أزيل من المشاهدة لاحقاً');redraw(f);return}
- if(d.dl){const [id,se,ep]=d.dl.split('|');const key=+se?`${id}|${se}|${ep}`:id;S.dls=S.dls.includes(key)?S.dls.filter(x=>x!==key):[...S.dls,key];save('dls');toast(S.dls.includes(key)?'تمت الإضافة إلى التحميلات':'أزيل من التحميلات');redraw(f);return}
- if('undl' in d){S.dls=S.dls.filter(x=>x!==d.undl);save('dls');redraw(f);return}
- if(d.dtab){f.tab(d.dtab);return}
- if('like' in d){const id=f.sid,v=+d.like;S.likes[id]=S.likes[id]===v?0:v;save('likes');redraw(f);return}
- if('more-desc' in d){f.toggleDesc();return}
- if('allep' in d){f.showAllEps();return}
- if('season' in d){const s=getItem(f.sid);seasonSheet(f,s,f.st.season);return}
- if('pickseason' in d){closeSheet();f.loadSeason(+d.pickseason);return}
- if(d.filter){filterSheet();return}
- if(d.fmt){const f2=filt||{from:1990,to:new Date().getFullYear(),rate:0,cast:'',genre:''};f2.mt=d.fmt;filt=f2;filterSheet();return}
- if(d.freset){filt=null;closeSheet();drawRes();return}
- if(d.fapply){const from=+$('#f-from').value,to=+$('#f-to').value;filt={:filterSheet.mt,from:Math.min(from,to),to:Math.max(from,to),genre:$('#f-cat').value,rate:+$('#f-rate').value,cast:$('#f-cast').value};closeSheet();drawRes();return}
- if(d.clearf){filt=null;drawRes();return}
- if(d.clearrec){S.recent=[];save('recent');drawRes();toast('تم مسح السجل');return}
- if(d.chip){sq=d.chip;const q=$('#q');if(q)q.value=sq;drawRes();return}
- if(d.login){loginSheet();return}
- if(d.share){if(navigator.share)navigator.share({title:APP_NAME,text:'تطبيق '+APP_NAME+' لمشاهدة الأفلام والمسلسلات'}).catch(()=>{});else toast('انسخ رابط الموقع لمشاركته');return}
- if(d.savekey){const k=($('#s-key')||{}).value||'';S.key=k.trim();save('key');cache.clear();toast('جارٍ الاتصال…');initTMDB().then(ok=>{const st=$('#s-stat');if(st)st.textContent=ok?'متصل بـ TMDB':'فشل الاتصال، تحقق من المفتاح';setTimeout(()=>{showTab('home')},600)});return}
- if(d.mode){S.light=d.mode==='light';save('light');app.classList.toggle('light',S.light);redraw(f);return}
- if(d.skip){S.skip=+d.skip;save('skip');redraw(f);return}
- if(d.defspeed){S.speed=+d.defspeed;save('speed');redraw(f);return}
- if(d.soon){toast('قريباً');return}
- if(d.pclose){closePlayer();return}
- if(d.ptoggle){P.playing=!P.playing;syncPP();showUI();return}
- if(d.prew){seek(P.t-S.skip);flash('l','-'+S.skip+' ث');showUI();return}
- if(d.pff){seek(P.t+S.skip);flash('r','+'+S.skip+' ث');showUI();return}
- if(d.pprev){if(P.s.mt==='tv'&&P.ep>1)openPlayerNow(P.s.id,P.se,P.ep-1);return}
- if(d.pnext){if(P.s.mt==='tv'&&P.ep<(P.epCount||0))openPlayerNow(P.s.id,P.se,P.ep+1);return}
- if(d.pmenu){playerMenu();return}
- if(d.pspeed){P.speed=+d.pspeed;if(P.video)P.video.playbackRate=P.speed;playerMenu();return}
- if(d.pq){if(P.hls)P.hls.currentLevel=+d.pq;playerMenu();return}
- if(d.pcc){P.subs=!P.subs;if(P.video){const tr=P.video.textTracks[0];if(tr)tr.mode=P.subs?'showing':'hidden'}toast(P.subs?'الترجمة مفعلة':'الترجمة معطلة');return}
- if(d.pfull){const pl=$('#pl');if(!document.fullscreenElement){pl.requestFullscreen&&pl.requestFullscreen().catch(()=>{})}else document.exitFullscreen().catch(()=>{});return}
- if(d.pstrip){strip();return}
- if(d.pep){const n=+d.pep;openPlayerNow(P.s.id,P.se,n);return}
- if(d.plock){P.locked=!P.locked;$('#pl').classList.toggle('locked',P.locked);toast(P.locked?'تم قفل الشاشة':'تم إلغاء القفل');showUI();return}
- if(d.mic){toast('البحث الصوتي غير مدعوم في هذه المعاينة');return}
+ if(d.fav){const id=d.fav;S.fav=S.fav.includes(id)?S.fav.filter(x=>x!==id):[...S.fav,id];save('fav');toast(S.fav.includes(id)?'أضيف إلى المفضلة':'أزيل من المفضلة');if(f)redraw(f);return}
+ if(d.later){const id=d.later;S.later=S.later.includes(id)?S.later.filter(x=>x!==id):[...S.later,id];save('later');toast(S.later.includes(id)?'أضيف إلى المشاهدة لاحقاً':'أزيل من المشاهدة لاحقاً');if(f)redraw(f);return}
+ if(d.dl){if(!S.dls.includes(d.dl)){S.dls.push(d.dl);save('dls');toast('أضيف إلى التحميلات')}else toast('موجود في التحميلات');if(f)redraw(f);return}
+ if(d.undl){S.dls=S.dls.filter(x=>x!==d.undl);save('dls');if(f)redraw(f);return}
+ if(d.dtab){if(f&&f.tab)f.tab(d.dtab);return}
+ if(d.like){if(f&&f.sid){const id=f.sid,v=+d.like;S.likes[id]=S.likes[id]===v?0:v;save('likes');redraw(f)}return}
+ if('season' in d){if(f&&f.sid){const s=getItem(f.sid);if(s&&s.seasonsList)seasonSheet(f,s,f.st.season)}return}
+ if(d.pickseason){closeSheet();if(f&&f.loadSeason)f.loadSeason(+d.pickseason);return}
+ if('moreDesc' in d){if(f&&f.toggleDesc)f.toggleDesc();return}
+ if('allep' in d){if(f&&f.showAllEps)f.showAllEps();return}
+ if('filter' in d){filterSheet();return}
+ if(d.fmt){filterSheet.mt=d.fmt;document.querySelectorAll('[data-fmt]').forEach(x=>x.classList.toggle('on',x.dataset.fmt===d.fmt));const fc=$('#f-cat');if(fc)fc.innerHTML=genreOpts(d.fmt,'');return}
+ if('close' in d){closeSheet();return}
+ if('freset' in d){filt=null;closeSheet();drawRes();return}
+ if('fapply' in d){const fr=$('#f-from'),to=$('#f-to'),cat=$('#f-cat'),rt=$('#f-rate'),cs=$('#f-cast');filt={mt:filterSheet.mt||'movie',from:+(fr&&fr.value)||1900,to:+(to&&to.value)||2100,genre:(cat&&cat.value)||'',rate:+(rt&&rt.value)||0,cast:((cs&&cs.value)||'').trim()};closeSheet();drawRes();return}
+ if('clearf' in d){filt=null;drawRes();return}
+ if('clearrec' in d){S.recent=[];save('recent');toast('تم مسح سجل البحث');drawRes();if(f&&f===R.account)redraw(f);return}
+ if(d.chip){sq=d.chip;showTab('search');return}
+ if('mic' in d){toast('البحث الصوتي غير مدعوم في هذه المعاينة');return}
+ if('login' in d){loginSheet();return}
+ if('share' in d){const t=APP_NAME+' — شاهد أفلامك ومسلسلاتك المفضلة';if(navigator.clipboard)navigator.clipboard.writeText(t).then(()=>toast('تم نسخ نص المشاركة'),()=>toast(t));else toast(t);return}
+ if('soon' in d){toast('هذه الصفحة جاهزة لإضافة محتواك');return}
+ if('savekey' in d){const el=$('#s-key');S.key=el?el.value.trim():'';save('key');cache.clear();failed=false;const st=$('#s-stat');if(st)st.textContent='جارٍ الاتصال…';boot(true);return}
+ if(d.mode){S.light=d.mode==='light';save('light');app.classList.toggle('light',S.light);if(f)redraw(f);return}
+ if(d.skip){S.skip=+d.skip;save('skip');if(f)redraw(f);return}
+ if(d.defspeed){S.speed=+d.defspeed;save('speed');if(f)redraw(f);return}
+ /* المشغل */
+ if('pclose' in d){closePlayer();return}
+ if('ptoggle' in d){P.playing=!P.playing;if(P.playing&&P.t>=P.dur-0.1)seek(0);syncPP();showUI();return}
+ if('prew' in d){seek(P.t-S.skip);flash('l','-'+S.skip+' ث');showUI();return}
+ if('pff' in d){seek(P.t+S.skip);flash('r','+'+S.skip+' ث');showUI();return}
+ if('pnext' in d||'pprev' in d){const nx='pnext' in d;if(!P.s)return;if(P.s.mt==='movie'){seek(nx?P.dur:0);return}const ep=P.ep+(nx?1:-1);if(ep<1||ep>P.epCount){toast(ep<1?'هذه أول حلقة':'هذه آخر حلقة في الموسم');return}openPlayer(P.s.id,P.se,ep);return}
+ if(d.pep){openPlayer(P.s.id,P.se,+d.pep);return}
+ if('pstrip' in d){strip();return}
+ if('pmenu' in d){playerMenu();return}
+ if(d.pspeed){P.speed=+d.pspeed;if(P.video)P.video.playbackRate=P.speed;const x=$('#pextra');if(x)x.innerHTML='';playerMenu();return}
+ if(d.pq){if(P.hls)P.hls.currentLevel=+d.pq;const x=$('#pextra');if(x)x.innerHTML='';playerMenu();return}
+ if('pfile' in d){const pf=$('#pfile');if(pf)pf.click();return}
+ if('pcc' in d){P.subs=!P.subs;if(P.video)[...P.video.textTracks].forEach(t=>t.mode=P.subs?'showing':'hidden');toast(P.subs?'الترجمة: تشغيل':'الترجمة: إيقاف');showUI();return}
+ if('plock' in d){P.locked=!P.locked;const pl=$('#pl');if(pl)pl.classList.toggle('locked',P.locked);b.innerHTML=P.locked?I.lock:I.unlock;toast(P.locked?'تم قفل الشاشة':'تم فتح القفل');showUI();return}
+ if('pfull' in d){const pl=$('#pl');if(!pl)return;P.land=!P.land;pl.classList.toggle('land',P.land);if(P.land){if(pl.requestFullscreen)pl.requestFullscreen().catch(()=>{});try{if(screen.orientation&&screen.orientation.lock)screen.orientation.lock('landscape').catch(()=>{})}catch(_){}}else if(document.fullscreenElement)document.exitFullscreen().catch(()=>{});setTimeout(()=>{pl.style.setProperty('--w',pl.clientWidth+'px');pl.style.setProperty('--h',pl.clientHeight+'px')},120);showUI();return}
 });
+window.addEventListener('resize',()=>{const pl=$('#pl');if(pl){pl.style.setProperty('--w',pl.clientWidth+'px');pl.style.setProperty('--h',pl.clientHeight+'px')}});
+document.addEventListener('keydown',e=>{if(!$('#pl')||P.yt)return;if(e.key===' '){e.preventDefault();P.playing=!P.playing;syncPP();showUI()}if(e.key==='ArrowRight'){seek(P.t+S.skip);flash('r','+'+S.skip)}if(e.key==='ArrowLeft'){seek(P.t-S.skip);flash('l','-'+S.skip)}if(e.key==='Escape')closePlayer()});
 
-// دالة تهيئة TMDB
-async function initTMDB(){
- try{
-  const k=getKey();
-  if(!k)return false;
-  LIVE=true;
-  const cfg=await api('/configuration');
-  const [mg,tg]=await Promise.all([api('/genre/movie/list'),api('/genre/tv/list')]);
-  GENRES={};[...(mg.genres||[]),...(tg.genres||[])].forEach(g=>GENRES[g.id]=g.name);
-  GLIST.movie=mg.genres||[];GLIST.tv=tg.genres||[];
-  return true;
- }catch(e){LIVE=false;return false}
+/* ====== التشغيل ====== */
+async function boot(fromSettings){
+ LIVE=!!getKey();
+ if(LIVE){try{const [m,t]=await Promise.all([api('/genre/movie/list'),api('/genre/tv/list')]);GLIST.movie=m.genres||[];GLIST.tv=t.genres||[];GENRES={};[...GLIST.movie,...GLIST.tv].forEach(g=>GENRES[g.id]=g.name);if(fromSettings)toast('تم الاتصال بـ TMDB')}
+  catch(e){LIVE=false;toast(String(e.message).includes('401')?'مفتاح TMDB غير صحيح':'تعذر الاتصال بـ TMDB، يعمل التطبيق بالبيانات التجريبية')}}
+ if(!fromSettings){try{const r=await fetch(CONFIG.STREAMS_URL,{cache:'no-store'});if(r.ok)FILE_STREAMS=await r.json()}catch(e){}}
+ const stat=$('#s-stat');if(stat)stat.textContent=LIVE?'متصل بـ TMDB':'بيانات تجريبية';
+ if(!fromSettings)showTab('home');
 }
-
-// بدء التطبيق
-(async()=>{
- app.classList.toggle('light',S.light);
- await initTMDB();
- renderNav();
- showTab('home');
- // تحميل streams.json إن وجد
- try{const r=await fetch(CONFIG.STREAMS_URL);if(r.ok){const j=await r.json();Object.assign(STREAMS,j)}}catch(e){}
-})();
+app.classList.toggle('light',S.light);
+renderNav();boot();
 </script>
 </body>
 </html>
